@@ -34,11 +34,28 @@
     "@atlaskit/button": "^8.2.4",
     "@atlaskit/icon": "^12.6.2",
     "@atlaskit/logo": "^8.1.3",
+    "@atlaskit/mention": "^13.1.5",
     "@atlaskit/navigation": "^32.3.1",
     "@atlaskit/page": "^7.2.1",
     "@atlaskit/quick-search": "^2.3.4",
     "ajv-keywords": "^3.2.0",
     "axios": "^0.18.0",
+    "concurrently": "^3.5.1",
+    "cross-env": "^5.1.4",
+    "node-sass": "^4.9.0",
+    "react": "^16.3.2",
+    "react-chat-widget": "^2.1.3",
+    "react-dom": "^16.3.2",
+    "react-fontawesome": "^1.6.1",
+    "react-fontawesome-svg": "^0.1.5",
+    "reflexbox": "^3.0.1"
+  },
+  "devDependencies": {
+    "faker": "^4.1.0",
+    "file-loader": "^1.1.11",
+    "sass-loader": "^7.0.1",
+    "styled-components": "^3.3.3",
+    "webpack": "^3.11.0",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.4",
     "babel-plugin-transform-class-properties": "^6.24.1",
@@ -46,22 +63,8 @@
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
-    "concurrently": "^3.5.1",
-    "cross-env": "^5.1.4",
     "css-loader": "^0.28.11",
-    "extract-text-webpack-plugin": "^3.0.2",
-    "node-sass": "^4.9.0",
-    "react": "^16.3.2",
-    "react-dom": "^16.3.2",
-    "react-fontawesome": "^1.6.1",
-    "react-fontawesome-svg": "^0.1.5",
-    "reflexbox": "^3.0.1",
-    "sass-loader": "^7.0.1",
-    "styled-components": "^3.3.3",
-    "webpack": "^3.11.0"
-  },
-  "devDependencies": {
-    "faker": "^4.1.0"
+    "extract-text-webpack-plugin": "^3.0.2"
   },
   "autoload": {
     "App": "./app"

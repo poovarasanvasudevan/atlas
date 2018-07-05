@@ -2,16 +2,19 @@ import React, {Component} from 'react'
 import UserService from '../service/UserService'
 import Avatar, {AvatarItem} from '@atlaskit/avatar'
 import {Box} from "reflexbox"
+import {MentionItem, MentionList} from "@atlaskit/mention/dist/es5/index"
 
 export default class ChatUsers extends Component<*, *> {
 
+  props = {}
 
-  constructor() {
+  constructor(props) {
     super()
 
     this.state = {
       users: []
     }
+    this.props = props
   }
 
   handleResize = () => this.setState({
@@ -28,18 +31,23 @@ export default class ChatUsers extends Component<*, *> {
     window.removeEventListener("resize", this.handleResize)
   }
 
+  onUserSelect = (user) => {
+    this.props.onUserSelected(user)
+  }
+
   render() {
 
     return (
-      <Box auto={true} p={2} className="sidebar borderLeft scroll1" style={{height: `${this.state.height - 32}px`}}>
-        <div>
+      <Box auto={true} p={2} className="sidebar borderLeft scroll1">
+        <div style={{direction: 'ltr'}}>
           {this.state.users.map(user => (
             <AvatarItem
-              avatar={<Avatar presence="online" src={user.avatar}/>}
+              avatar={<Avatar presence={user.presence.status} src={user.avatarUrl}/>}
               key={user.id}
-              onClick={console.log}
-              primaryText={user.first_name + " " + user.last_name}
-              secondaryText={user.email}
+              onClick={this.onUserSelect}
+              userdata={user}
+              primaryText={user.name}
+              secondaryText={'@' + user.nickname}
             />
           ))}
         </div>

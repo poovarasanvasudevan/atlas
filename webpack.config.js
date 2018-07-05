@@ -23,6 +23,14 @@ function scriptRules () {
         presets: ['env'] ,
         plugins : ['transform-class-properties']
       }
+    },
+    {
+      test: /\.(gif|svg|jpg|png)$/,
+      loader: "file-loader",
+    },
+    {
+      test: /\.css$/,
+      loader:'style!css!'
     }
   ]
 }

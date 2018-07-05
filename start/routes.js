@@ -19,12 +19,18 @@ Route.get('/api/users', ({response}) => {
 
   let data = []
   for (let i = 0; i < 30; i++) {
+
+    let t = Math.floor(Math.random() * 100)
+    let g = t % 2 === 0 ? 'men' : 'women'
     data.push({
       id: i,
-      first_name: faker.name.firstName(),
-      last_name: faker.name.lastName(),
-      avatar: faker.image.imageUrl(),
-      email : faker.internet.email()
+      selected: false,
+      name: faker.name.findName(),
+      nickname: faker.name.lastName(),
+      avatarUrl: 'https://randomuser.me/api/portraits/' + g + '/' + t + '.jpg',
+      presence: {
+        status: 'online'
+      }
     })
   }
 

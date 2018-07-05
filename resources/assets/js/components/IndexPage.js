@@ -28,7 +28,7 @@ import TestIcon from "./icons/TestIcon"
 import {AreaChart, Cog, Comment, Cubes, Folder, Globe, Plus, Search, User, Users} from "./icons/icon"
 import ChatUsers from "./module/ChatUsers"
 import {Box, Flex} from "reflexbox"
-
+import { Widget } from 'react-chat-widget';
 const BackIcon = (
   <Tooltip position="right" content="Back">
     <ArrowLeftIcon label="Back icon" size="medium"/>
@@ -150,6 +150,11 @@ export default class IndexPage extends Component<*, *> {
         ],
       ],
       width: 200,
+      chatbot: {
+        user: "Test",
+        avatar: "test",
+        isOpen: false
+      }
     }
 
   }
@@ -260,6 +265,19 @@ export default class IndexPage extends Component<*, *> {
     setTimeout(() => this.setState({menuLoading: false}), 2000)
   }
 
+  onChatUserSelected(user) {
+    this.setState({
+      chatbot : {
+        isOpen : true ,
+        user : user.item.userdata.name ,
+        avatar : user.item.userdata.avatarUrl
+      }
+    })
+  }
+  handleNewUserMessage = (newMessage) => {
+    console.log(`New message incomig! ${newMessage}`);
+  }
+
   render() {
     return (
       <Page
@@ -298,9 +316,17 @@ export default class IndexPage extends Component<*, *> {
               commodi, nobis ut, error iusto, quas vitae nesciunt consequatur
               possimus labore! Mollitia est quis minima asperiores.
             </p>
+
+            <div>
+              <Widget
+                isOpen ={this.state.chatbot.isOpen}
+                handleNewUserMessage={this.handleNewUserMessage}
+                title={this.state.chatbot.user}
+              />
+            </div>
           </Box>
 
-          <ChatUsers/>
+          <ChatUsers onUserSelected={this.onChatUserSelected}/>
 
         </Flex>
       </Page>
