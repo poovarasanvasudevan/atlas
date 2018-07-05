@@ -60,7 +60,9 @@
     "styled-components": "^3.3.3",
     "webpack": "^3.11.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "faker": "^4.1.0"
+  },
   "autoload": {
     "App": "./app"
   }

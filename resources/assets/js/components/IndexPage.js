@@ -1,6 +1,4 @@
 import React, {Component} from 'react'
-import AddIcon from '@atlaskit/icon/glyph/add'
-import AddonIcon from '@atlaskit/icon/glyph/addon'
 import ArrowLeftIcon from '@atlaskit/icon/glyph/arrow-left'
 import Button from '@atlaskit/button'
 import ChevronRightIcon from '@atlaskit/icon/glyph/chevron-right'
@@ -9,13 +7,8 @@ import ConfluenceIcon from '@atlaskit/icon/glyph/confluence'
 import {ConfluenceWordmark} from '@atlaskit/logo'
 import DiscoverIcon from '@atlaskit/icon/glyph/discover'
 import EditorAlignLeftIcon from '@atlaskit/icon/glyph/editor/align-left'
-import EditorFeedbackIcon from '@atlaskit/icon/glyph/editor/feedback'
-import FolderIcon from '@atlaskit/icon/glyph/folder'
 import JiraIcon from '@atlaskit/icon/glyph/jira'
-import Page, {GridColumn} from '@atlaskit/page'
-import PeopleIcon from '@atlaskit/icon/glyph/people'
-import SearchIcon from '@atlaskit/icon/glyph/search'
-import SettingsIcon from '@atlaskit/icon/glyph/settings'
+import Page, {Grid, GridColumn} from '@atlaskit/page'
 import Tooltip from '@atlaskit/tooltip'
 import TrayIcon from '@atlaskit/icon/glyph/tray'
 import WorldIcon from '@atlaskit/icon/glyph/world'
@@ -33,8 +26,8 @@ import Navigation, {
 } from '@atlaskit/navigation'
 import TestIcon from "./icons/TestIcon"
 import {AreaChart, Cog, Comment, Cubes, Folder, Globe, Plus, Search, User, Users} from "./icons/icon"
-import {Flex, Box} from 'reflexbox'
 import ChatUsers from "./module/ChatUsers"
+import {Box, Flex} from "reflexbox"
 
 const BackIcon = (
   <Tooltip position="right" content="Back">
@@ -247,7 +240,7 @@ export default class IndexPage extends Component<*, *> {
 
   resize = (resizeState: { isOpen: boolean, width: number }) => {
     console.log('onResize called')
-    localStorage.setItem("drawer" ,  resizeState.isOpen)
+    localStorage.setItem("drawer", resizeState.isOpen)
     this.setState({
       isOpen: resizeState.isOpen,
       width: resizeState.width,
@@ -284,7 +277,7 @@ export default class IndexPage extends Component<*, *> {
             globalPrimaryIcon={
               <ConfluenceIcon label="Confluence icon" size="large"/>
             }
-            globalPrimaryItemHref="//www.atlassian.com/software/confluence"
+            globalPrimaryItemHref="/"
             globalSearchIcon={<GlobalSearchIcon openDrawer={this.openDrawer}/>}
             isOpen={this.state.isOpen}
             onResize={this.resize}
@@ -295,15 +288,20 @@ export default class IndexPage extends Component<*, *> {
           </Navigation>
         }
       >
-        <Flex flex={true} >
+        <Flex flex={true} className="full-content">
 
-
-          <Box w="250px" className="padding3">
-            <ChatUsers/>
+          <Box auto={true} w={10 / 12} p={2}>
+            <h1>Main heading</h1>
+            <p>
+              Lorem ipsum dolor sit amet and consectetur adipisicing elit.
+              Blanditiis voluptatum perspiciatis doloribus dignissimos accusamus
+              commodi, nobis ut, error iusto, quas vitae nesciunt consequatur
+              possimus labore! Mollitia est quis minima asperiores.
+            </p>
           </Box>
-          <Box auto={true}>
 
-          </Box>
+          <ChatUsers/>
+
         </Flex>
       </Page>
     )

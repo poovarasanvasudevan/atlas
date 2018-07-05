@@ -9,3 +9,48 @@ body {
 
 .padding3 {
   padding: 3px; }
+
+.borderRight {
+  border-right: 1px solid rgba(0, 0, 0, 0.1); }
+
+.borderLeft {
+  border-left: 1px solid rgba(0, 0, 0, 0.1); }
+
+.height100 {
+  height: 100% !important; }
+
+.parent_container {
+  display: flex;
+  height: 100vh; }
+
+.r_side {
+  flex: 0.25;
+  position: sticky; }
+
+.l_side {
+  flex: 5;
+  position: relative; }
+
+.full-content {
+  height: 100vh; }
+
+.sidebar {
+  overflow: auto;
+  position: -webkit-sticky;
+  position: sticky; }
+
+.main {
+  display: flex;
+  flex-direction: column; }
+
+.scroll1::-webkit-scrollbar {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  width: 7px; }
+
+.scroll1::-webkit-scrollbar-track {
+  background: #fff; }
+
+.scroll1::-webkit-scrollbar-thumb {
+  background: #aaa; }

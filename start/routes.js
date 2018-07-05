@@ -14,5 +14,26 @@
 */
 
 const Route = use('Route')
+const faker = require('faker')
+Route.get('/api/users', ({response}) => {
 
+  let data = []
+  for (let i = 0; i < 30; i++) {
+    data.push({
+      id: i,
+      first_name: faker.name.firstName(),
+      last_name: faker.name.lastName(),
+      avatar: faker.image.imageUrl(),
+      email : faker.internet.email()
+    })
+  }
+
+  return response.send({
+    "page": 1,
+    "per_page": 3,
+    "total": 12,
+    "total_pages": 4,
+    "data": data
+  })
+})
 Route.on('/').render('welcome')
