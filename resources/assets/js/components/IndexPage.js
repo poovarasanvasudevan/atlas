@@ -28,7 +28,8 @@ import TestIcon from "./icons/TestIcon"
 import {AreaChart, Cog, Comment, Cubes, Folder, Globe, Plus, Search, User, Users} from "./icons/icon"
 import ChatUsers from "./module/ChatUsers"
 import {Box, Flex} from "reflexbox"
-import { Widget } from 'react-chat-widget';
+import MainWidgets from "./module/MainWidgets"
+
 const BackIcon = (
   <Tooltip position="right" content="Back">
     <ArrowLeftIcon label="Back icon" size="medium"/>
@@ -150,6 +151,9 @@ export default class IndexPage extends Component<*, *> {
         ],
       ],
       width: 200,
+      nav: {
+        show: true
+      },
       chatbot: {
         user: "Test",
         avatar: "test",
@@ -267,21 +271,24 @@ export default class IndexPage extends Component<*, *> {
 
   onChatUserSelected(user) {
     this.setState({
-      chatbot : {
-        isOpen : true ,
-        user : user.item.userdata.name ,
-        avatar : user.item.userdata.avatarUrl
+      chatbot: {
+        isOpen: true,
+        user: user.item.userdata.name,
+        avatar: user.item.userdata.avatarUrl
       }
     })
   }
+
   handleNewUserMessage = (newMessage) => {
-    console.log(`New message incomig! ${newMessage}`);
+    console.log(`New message incomig! ${newMessage}`)
   }
+
 
   render() {
     return (
       <Page
-        navigation={
+
+        navigation={this.state.nav.show ?
           <Navigation
             drawers={[this.getSearchDrawer(), this.getCreateDrawer()]}
             containerTheme={presetThemes.global}
@@ -304,12 +311,14 @@ export default class IndexPage extends Component<*, *> {
           >
             <AkContainerNavigationNested stack={this.state.stack}/>
           </Navigation>
+
+          : null
         }
       >
         <Flex flex={true} className="full-content">
 
           <Box auto={true} w={10 / 12} p={2}>
-            <h1>Main heading</h1>
+            <h3>Main heading</h3>
             <p>
               Lorem ipsum dolor sit amet and consectetur adipisicing elit.
               Blanditiis voluptatum perspiciatis doloribus dignissimos accusamus
@@ -317,13 +326,7 @@ export default class IndexPage extends Component<*, *> {
               possimus labore! Mollitia est quis minima asperiores.
             </p>
 
-            <div>
-              <Widget
-                isOpen ={this.state.chatbot.isOpen}
-                handleNewUserMessage={this.handleNewUserMessage}
-                title={this.state.chatbot.user}
-              />
-            </div>
+            <MainWidgets/>
           </Box>
 
           <ChatUsers onUserSelected={this.onChatUserSelected}/>

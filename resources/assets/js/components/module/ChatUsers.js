@@ -36,7 +36,7 @@ export default class ChatUsers extends Component<*, *> {
   }
 
   render() {
-
+//
     return (
       <Box auto={true} p={2} className="sidebar borderLeft scroll1">
         <div style={{direction: 'ltr'}}>
