@@ -25,7 +25,7 @@ import Navigation, {
   presetThemes,
 } from '@atlaskit/navigation'
 import TestIcon from "./icons/TestIcon"
-import {AreaChart, Cog, Comment, Cubes, Folder, Globe, Plus, Search, User, Users} from "./icons/icon"
+import {AreaChart, Cog, Comment, Cubes, Envelope, Folder, Globe, Plus, Search, User, Users} from "./icons/icon"
 import ChatUsers from "./module/ChatUsers"
 import {Box, Flex} from "reflexbox"
 import MainWidgets from "./module/MainWidgets"
@@ -113,9 +113,15 @@ export default class IndexPage extends Component<*, *> {
             icon={<Folder label="Spaces icon" size="medium"/>}
           />,
           <AkNavigationItem
+            text="MailBox"
+            icon={<Icon glyph={Envelope} label="Envelope" size="medium"/>}
+          />,
+
+          <AkNavigationItem
             text="People"
             icon={<Users label="People icon" size="medium"/>}
           />,
+
           <AkNavigationItem
             action={
               <Button
@@ -195,6 +201,8 @@ export default class IndexPage extends Component<*, *> {
     >
       <AkSearch placeholder="Search..." onKeyDown={() => {
       }}>
+        <h5>PEOPLE</h5>
+
         <AkNavigationItemGroup title="RECENTLY VIEWED">
           <AkNavigationItem
             icon={<EditorAlignLeftIcon label="Editor icon"/>}
